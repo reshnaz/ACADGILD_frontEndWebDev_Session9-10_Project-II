@@ -4,30 +4,33 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CapitalizeFirstPipe } from './pipe/capitalize-first.pipe';
 import { AppComponent } from './app.component';
-import { PersonComponent } from './person/person.component';
 import { SearchPipe } from './pipe/search.pipe';
-import { personRouting } from './routes/person-routes.routes';
+import { movieRouting } from './routes/movie.routes';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AddPersonComponent } from './add-person/add-person.component';
-import { PersonDropdownService } from './service/person-dropdown.service';
-import { PersonService } from './service/person.service';
-import { PersonDetailComponent } from './person-detail/person-detail.component';
+import { MovieHomeComponent } from './movie-home/movie-home.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { AddMovieComponent } from './add-movie/add-movie.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component'; 
+import { MovieService } from './service/movie.service';
+import { MyMouseOverDirective } from './custom-directives/my-mouse-over.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonComponent,
     CapitalizeFirstPipe,
     SearchPipe,
     PageNotFoundComponent,
-    AddPersonComponent,
-    PersonDetailComponent
+    MovieHomeComponent,
+    MovieListComponent,
+    AddMovieComponent,
+    MovieDetailComponent,
+    MyMouseOverDirective
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, personRouting
+    BrowserModule, FormsModule, ReactiveFormsModule, movieRouting
   ],
-  providers: [PersonService, PersonDropdownService],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

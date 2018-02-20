@@ -1,0 +1,6 @@
+/* Specifying appropriate dimensions to image */
+img {
+    width: 152px;
+    height: 104px;
+    border-radius: 30px;
+}

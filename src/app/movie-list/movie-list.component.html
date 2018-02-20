@@ -1,0 +1,90 @@
+<!-- This HTML is the one included in movie-home HTML. 
+It either displays all the movies added to list, 
+or shows a message that no movies are available (if there are none in array)-->
+
+<section class="content">
+
+  <div class="panel panel-body">
+
+    <div class="form-group has-feedback">
+      <!-- Button to add a new movie -->
+      <button class="btn btn-danger" [ngStyle]="{'float': 'left'}" [routerLink]="['/addMovie']">
+        Add a movie
+      </button>
+      <!-- Search bar where user can search for movies -->
+      <input type="text" id=search name="search" class="form-control" placeholder="Search Movies" [(ngModel)]="searchString">
+      <i class="glyphicon glyphicon-search form-control-feedback"></i>
+    </div>
+    <hr/>
+
+    <div class="jumbotron" id="moviesMenu">
+      <!-- Conditional display of movie list based on length of input array -->
+
+      <!-- Below div is displayed if there are no movie entries -->
+      <div class="innerMenu" [ngStyle]="{'text-align': 'center','color': 'red'}" *ngIf="(movies?.length <= 0); else moviesAvailable">
+        <h3 class="innerMostContent">No Movie Data Available</h3>
+      </div>
+
+      <!-- Below template is displayed if movie entries are available -->
+      <ng-template #moviesAvailable class="innerMenu">
+        <!-- Loop through input array -->
+        <!-- Search array of entered data using custom search pipe -->
+        <div class="innerMostContent">
+          <div class="table">
+            <ul id="horizontal-list" [ngStyle]="{'text-align': 'left'}">
+              <li *ngFor="let movie of (movies | search:searchString); let i = index">
+                <td style="text-align:center">
+                  <a href="#" style="cursor: pointer;" title={{movie?.movieName}} [routerLink]="['/movieDetail', i + 1]">
+                    <!-- Below we use custom directive to change background color on hover -->
+                    <img [appMyMouseOver]=movie?.movieRating src={{movie?.movieImageURL}} alt={{movie?.movieName}} />
+                  </a>
+                  <br>
+                  <!-- Using switch case to display appropriate stars according to rating -->
+                  <span [ngSwitch]="movie?.movieRating">
+                    <span *ngSwitchCase="1">
+                      <span class="fa fa-star checked12"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                    </span>
+                    <span *ngSwitchCase="2">
+                      <span class="fa fa-star checked12"></span>
+                      <span class="fa fa-star checked12"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                    </span>
+                    <span *ngSwitchCase="3">
+                      <span class="fa fa-star checked34"></span>
+                      <span class="fa fa-star checked34"></span>
+                      <span class="fa fa-star checked34"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                    </span>
+                    <span *ngSwitchCase="4">
+                      <span class="fa fa-star checked34"></span>
+                      <span class="fa fa-star checked34"></span>
+                      <span class="fa fa-star checked34"></span>
+                      <span class="fa fa-star checked34"></span>
+                      <span class="fa fa-star"></span>
+                    </span>
+                    <span *ngSwitchCase="5">
+                      <span class="fa fa-star checked5"></span>
+                      <span class="fa fa-star checked5"></span>
+                      <span class="fa fa-star checked5"></span>
+                      <span class="fa fa-star checked5"></span>
+                      <span class="fa fa-star checked5"></span>
+                    </span>
+                  </span>
+                </td>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+
+</section>

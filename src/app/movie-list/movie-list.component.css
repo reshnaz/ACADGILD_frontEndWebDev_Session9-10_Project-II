@@ -1,0 +1,61 @@
+/* Background image for the panel containing movie list */
+#moviesMenu {
+  width: 100%;
+  background: url(http://images.fandango.com/MDCsite/images/featured/201111/posters1.jpg) repeat-y;
+  position: relative;
+  border-radius: 20px;
+}
+
+/* An overlay to make the background image transparent */
+#moviesMenu:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 20px;
+}
+
+.innerMostContent {
+  position: relative;
+}
+
+.table {
+  display: table;
+  /* Allow the centering to work */
+  margin: 0 auto;
+}
+
+/* Make the list appear horizontal */
+ul#horizontal-list {
+  min-width: 696px;
+  list-style: none;
+  padding-top: 20px;
+}
+
+ul#horizontal-list li {
+  display: inline;
+}
+
+/* Setting dimensions for the displayed movie image */
+ul#horizontal-list li a img {
+  padding: 1vw;
+  border-radius: 30px;
+  width: 210px;
+  height: 291px;
+}
+
+/* Different colors for stars representing different ratings */
+.checked12{
+  color: red;
+}
+
+.checked34{
+  color: orange;
+}
+
+.checked5{
+  color: green;
+}

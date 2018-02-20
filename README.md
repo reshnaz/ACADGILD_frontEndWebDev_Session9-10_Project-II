@@ -1,34 +1,37 @@
-# S12A3
+# Project-I: IMDB App/Movie App
 
 Note: All output related files are under "src/app" folder.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
 
 ## Problem Statement
-1. Create a form with 3 inputs, 1 dropdown field, and 1 field that which will
-take the date and a button. Create a text box for searching the values from
-the array.
-2. The drop down filed values should display on initialization using services.
-3. The input and the dropdown fields should use a Two-Way Binding. Create a
-model for the fields and initialize them on ngOnInit().
-4. Create a service for sending and retrieving the data.
-5. Create a function which will bind with the (ngSubmit). Once you click on that
-button, it should send the data in the parameter and should display the data
-in View. Use pipe to show the date in 9/3/2010 this format.
-6. Create a custom pipe to capitalize the first character of any one of the inputs
-in the View.
-7. Create a custom pipe for searching the values from the array as you enter
-the values in the search text box.
-8. Create a file in which define the routing configuration and routeroutlet.
-9. Divide the file for adding the data and for viewing the data.
-10. Define path and assign component accordingly.
-11. Define default and wildcard routes.
-12. Create a navbar with two text values and clicking on those values the page
-should routes accordingly.
-13. Create a path with route parameter.
-14. On adding the values the page should navigate to the view routes.
-15. On clicking any one of the data in the view it should pass the values the
-route parameter and display the route parameter values in the view.
+What needs to be implemented?
+
+Movie Service
+Create a service which will display and add the movie list. The service should return and accept the
+following properties:
+a. Images URL
+b. Name
+c. Description
+d. Rating
+e. Release date
+
+Movies List
+a. Consume the service and display all the movie lists using structural directives
+b. If there is no movie description or other fields available, it should display “N/A”
+c. Show movie list table only if the array length is > 0
+
+Add Movie
+a. Consume the service for adding the movie from the input fields
+Name, Rating, and Release dates are mandatory fields.
+b. Show proper error message and a CSS style for the required fields
+c. The submit button should be disabled until and unless all the validation is proper
+
+Custom Directive
+a. Create a custom directive for mouse over.
+b. OnMouseOver, the background for each of the movies listed on the list should change depending on
+their ratings.
+c. Ratings from 1 – 2, 3 – 4, and 5 should show different background colors.
 
 ## Development server
 

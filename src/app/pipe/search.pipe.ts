@@ -10,7 +10,7 @@ export class SearchPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
     if (value.length !== 0) {
-      return value.filter((item) => item.firstName.startsWith(args));
+      return value.filter((item) => item.movieName.startsWith(args.toUpperCase()) || item.movieName.startsWith(args.toLowerCase()));
     } else {
       return [];
     }

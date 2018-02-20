@@ -1,0 +1,96 @@
+<!-- This form is used to add movies to the movie list -->
+
+<div style="text-align:center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <form [formGroup]="f" id="movieForm" novalidate autocomplete="off" (ngSubmit)="addMovie(f.value)">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2 style="text-align: center;text-decoration: underline;">Add a Movie</h2>
+              <br>
+              <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8">
+                  <!-- Movie Name -->
+                  <div class="form-group" style="text-align:left">
+                    <label for="movieName">Movie Name</label>
+                    <!-- Input field for movie name imparting two-way data flow. 
+                      Form controls are used for validation. -->
+                    <input type="text" id="movieName" name="movieName" class="form-control" placeholder="Movie Name" formControlName="movieName">
+                    <div *ngIf="f.controls['movieName'].errors && (f.controls['movieName'].dirty || f.controls['movieName'].touched)" class="alert alert-danger">
+                      <!-- Below div is displayed if the movie name is not filled -->
+                      <div *ngIf="f.controls['movieName'].hasError('required')">
+                        Movie name is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Movie Rating -->
+                  <div class="row col-xs-12">
+                    <div class="form-group" style="text-align:left; float:left">
+                      <label for="movieRating">Rating</label>
+                      <span>(1-lowest, 5-highest)</span>
+                      <!-- Input field for movie rating imparting two-way data flow.
+                        Form controls are used for validation. -->
+                      <select class="text-box" id="movieRating" name="movieRating" formControlName="movieRating" class="form-control">
+                        <option [value]="null" [disabled]="true">Select Movie Rating</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                      <!-- Below div is displayed if the movie rating is not filled -->
+                      <div *ngIf="f.controls['movieRating'].errors && (f.controls['movieRating'].dirty || f.controls['movieRating'].touched)" class="alert alert-danger">
+                        <div *ngIf="f.controls['movieRating'].hasError('required')">
+                          Movie rating is required.
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Release Date -->
+                    <div class="form-group" style="text-align:left; float:right">
+                      <label for="movieReleaseDate">Date of Release</label>
+                      <!-- Input field for Date of Release imparting two-way data flow.
+                      Form controls are used for validation. -->
+                      <input type="date" id="movieReleaseDate" name="movieReleaseDate" class="form-control" placeholder="Movie Release Date" formControlName="movieReleaseDate">
+                      <!-- Below div is displayed if Date of Release is not filled -->
+                      <div *ngIf="f.controls['movieReleaseDate'].errors && (f.controls['movieReleaseDate'].dirty || f.controls['movieReleaseDate'].touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="f.controls['movieReleaseDate'].hasError('required')">
+                          Date of release is required.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Movie Description -->
+                  <div class="form-group" style="text-align:left">
+                    <label for="movieDescription">Movie Description</label>
+                    <!-- Input field for movie description imparting two-way data flow. -->
+                    <textarea id="movieDescription" name="movieDescription" class="form-control" rows="3" placeholder="Describe the movie plot"
+                      formControlName="movieDescription"></textarea>
+                  </div>
+
+                  <!-- Movie URL -->
+                  <div class="form-group" style="text-align:left">
+                    <label for="movieImageURL">Movie Image URL</label>
+                    <!-- Input field for movie image URL imparting two-way data flow. -->
+                    <input type="text" id="movieImageURL" name="movieImageURL" class="form-control" placeholder="Include the URL to this movie's image"
+                      formControlName="movieImageURL">
+                  </div>
+
+                  <!-- Button that calls service functions and ultimately shows data input in home page -->
+                  <!-- This button is enabled only after all fields are filled and valid -->
+                  <input type="submit" id="btn-submit" class="btn btn-primary btn-block" value="Add to Movie Database" [disabled]="f.invalid">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

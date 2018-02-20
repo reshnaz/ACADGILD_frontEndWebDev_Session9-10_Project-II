@@ -1,0 +1,24 @@
+<!-- Home page for the movie app: Displays movie list 
+  and enables user to search for a movie name -->
+
+  <!-- This HTML houses the MovieList component -->
+
+<div style="text-align:center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="panel">
+          <div class="panel-body">
+
+              <!-- Conditional display of movie list based on length of input array -->
+                <!-- Display list that is part of child component -->
+                <app-movie-list [movies]="movieList"></app-movie-list>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<!-- This HTML displays details of the movie selected in home page. -->
+
+<div style="text-align:left">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <!-- Display image on the left -->
+            <span [ngStyle]="{'float':'left'}">
+              <img src={{movie?.movieImageURL}} alt={{movie?.movieName}}>
+            </span>
+            <!-- Use table to align contents like movie name, release date, rating and description -->
+            <table>
+              <!-- Table row 1 displays movie name, release date & rating -->
+              <tr>
+                <span style="font-size: 4vw; font-family: fantasy; color: darkslategrey;">
+                  {{movie?.movieName}} : {{movie?.movieRating}}/5
+                </span>
+                <br>
+                <span style="font-weight: bold; color: darkslategrey;">Release Date: {{movie?.movieReleaseDate}}</span>
+              </tr>
+              <!-- Table row 2 displays movie description -->
+              <tr>
+                <hr style="margin: 0 0 0 auto; height:1vw">
+                <br>
+                <div style="font-size: 1.5vw; font-family: fantasy; color: darkslategrey;">
+                  {{movie?.movieDescription}}
+                </div>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
