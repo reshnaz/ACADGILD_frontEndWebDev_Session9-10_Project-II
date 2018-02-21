@@ -1,0 +1,26 @@
+/* Setting text color and font family for page content */
+.content {
+  color: rgb(197, 172, 63);
+  font-family: 'Actor', sans-serif;
+  font-weight: bold;
+}
+
+
+hr {
+    border-top: 1.6px solid #626a75;
+}
+
+th {
+  text-align: center;
+  background-color: #626a75;
+}
+
+/* Positioning our table where tasks are displayed */
+.scroll-area{
+  width: 105vh;
+  height: 200px;
+  margin-top:1%;
+  text-align: center;
+  overflow-y:scroll;
+  padding:0;
+}

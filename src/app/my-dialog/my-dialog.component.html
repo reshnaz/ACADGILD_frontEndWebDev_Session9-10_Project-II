@@ -1,16 +1,53 @@
+<!-- This HTML hosts the dialog that takes user input for task creation. -->
+
 <div>
-  <h2 mat-dialog-title>MY DIALOG</h2>
+  <h2 mat-dialog-title>Add a Task</h2>
   <hr>
   <mat-dialog-content>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam maxime cum dolorem officiis assumenda rem alias, omnis
-    nobis nam. Ratione soluta libero architecto cupiditate at fugit consectetur sit dignissimos vitae.
-    <br>
-    <br>
-    <strong>{{data}}</strong>
+
+    <form [formGroup]="f" id="taskForm" novalidate autocomplete="off">
+      <!-- Task Name -->
+      <div class="form-group" style="text-align:left">
+        <label for="taskName">Task Title</label>
+        <!-- Input field for task name imparting two-way data flow. 
+          Form controls are used for validation. -->
+        <input type="text" id="taskName" name="taskName" class="form-control" placeholder="Task Title" formControlName="taskName">
+        <div *ngIf="f.controls['taskName'].errors && (f.controls['taskName'].dirty || f.controls['taskName'].touched)" class="alert alert-danger">
+          <!-- Below div is displayed if the task name is not filled -->
+          <div *ngIf="f.controls['taskName'].hasError('required')">
+            Task title is required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Task Due Date -->
+      <div class="form-group" style="text-align:left">
+        <label for="taskDueDate">Task Completion Date</label>
+        <!-- Input field for due date imparting two-way data flow.
+            Form controls are used for validation. -->
+
+        <!-- By default, current date is shown in this field -->
+        <input type="date" id="taskDueDate" name="taskDueDate" class="form-control" [ngModel]="today | date:'yyyy-MM-dd'" formControlName="taskDueDate">
+        <!-- Below div is displayed if due date is not filled -->
+        <div *ngIf="f.controls['taskDueDate'].errors && (f.controls['taskDueDate'].dirty || f.controls['taskDueDate'].touched)" class="alert alert-danger">
+          <div *ngIf="f.controls['taskDueDate'].hasError('required')">
+            Completion date is required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Task Description -->
+      <div class="form-group" style="text-align:left">
+        <label for="taskDescription">Task Description</label>
+        <!-- Input field for task description imparting two-way data flow. -->
+        <textarea id="taskDescription" name="taskDescription" class="form-control" rows="3" placeholder="Describe your task" formControlName="taskDescription"></textarea>
+      </div>
+
+    </form>
   </mat-dialog-content>
   <hr>
   <mat-dialog-actions>
-    <button md-raised-button (click)="onCloseConfirm()">CONFIRM</button>&nbsp;
-    <button md-raised-button (click)="onCloseCancel()">CANCEL</button>
+    <input type="submit" id="btn-submit" class="btn btn-primary btn-block" value="ADD TASK" (click)="addTask(f.value);onCloseConfirm()"
+      [disabled]="f.invalid">
   </mat-dialog-actions>
 </div>

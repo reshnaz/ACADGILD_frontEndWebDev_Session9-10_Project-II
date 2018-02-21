@@ -1,0 +1,46 @@
+<!-- This HTML is the one included in task-home HTML. 
+It either displays all the tasks added to list, 
+or shows a message that no tasks are available (if there are none in array)-->
+
+<section class="content">
+
+  <h2>Task List</h2>
+  <hr/>
+
+  <div style="text-align:center">
+    <!-- Conditional display of task list based on length of input array -->
+
+    <!-- Below div is displayed if there are no tasks entries -->
+    <div class="innerMenu" [ngStyle]="{'text-align': 'center'}" *ngIf="(tasks?.length <= 0); else tasksAvailable">
+      <h3 class="innerMostContent">Hurray! No pending tasks!</h3>
+    </div>
+
+    <!-- Below template is displayed if task entries are available -->
+    <ng-template #tasksAvailable>
+      <!-- Loop through input array and display task details-->
+      <div class="scroll-area">
+        <table class="table table-bordered" style="text-align:left">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Due Date</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let task of tasks; let i = index" [appMyMouseOver]=task?.taskDueDate>
+            <td>
+              {{task?.taskName}}
+            </td>
+            <td>
+              {{task?.taskDueDate}}
+            </td>
+            <td>
+              {{task?.taskDescription}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </ng-template>
+
+  </div>
+</section>

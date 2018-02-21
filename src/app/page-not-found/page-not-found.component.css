@@ -1,0 +1,8 @@
+/* Applying suitable background color to main panel */
+
+#outer-panel {
+    background-color: rgba(82, 44, 35, 0.897);
+    margin-top: 10%;
+    height: 60vh;
+  }
+  

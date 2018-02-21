@@ -1,7 +1,8 @@
-/*Applying suitable background color to page*/
-
+/* Imports required for dialog box and font respectively */
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+@import url(https://fonts.googleapis.com/css?family=Actor);
 
+/*Applying suitable background to page*/
 body {
   background: url(https://www.desktopbackground.org/download/1600x1200/2015/12/26/1063376_full-hd-wallpapers-backgrounds-brown-wood_1920x1200_h.jpg) repeat;
   height: 100%;
@@ -11,33 +12,23 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Formats text inside the navigation bar on top */
+/* Formatting the dialog box */
+.mat-dialog-container {
+  background: linear-gradient(to bottom right, rgb(183, 110, 0), rgb(153,77,0))/* rgb(203,162,63);*/
+} 
 
-/* .navbar-inverse .navbar-nav>li>a {
-  font-weight: bold;
-  font-size: medium;
-} */
-
-/* Applying suitable color to submit button while adding a movie */
+/* Applying suitable color to submit button while adding a task */
 
 #btn-submit {
   background-color: black;
   border-color: black;
 }
 
-/* Applying suitable color **when hovered** to submit button while adding a movie */
+/* Applying suitable color **when hovered** to submit button while adding a task */
 
 #btn-submit:enabled:hover {
   background-color: rgb(54, 54, 54);
   border-color: rgb(54, 54, 54);
-}
-
-/* Styling the movie search bar */
-
-#search {
-  width: 25%;
-  margin-left: 75%;
-  font-size: 12px;
 }
 
 /* Applying padding to cells in table view for a neater look */
