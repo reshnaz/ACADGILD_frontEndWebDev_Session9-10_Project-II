@@ -1,0 +1,17 @@
+#outer-panel {
+  background-color: rgba(82, 44, 35, 0.897);
+  margin-top: 10%;
+  height: 60vh;
+}
+
+#main-logo:hover {
+  background-color: rgba(82, 44, 35, 0);
+  cursor: pointer;
+}
+
+hr {
+  border: none;
+  border-left: 1px solid hsla(200, 10%, 50%, 100);
+  height: 50vh;
+  width: 1px;
+}

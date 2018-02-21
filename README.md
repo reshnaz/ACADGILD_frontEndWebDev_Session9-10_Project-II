@@ -1,4 +1,4 @@
-# Project-I: IMDB App/Movie App
+# Project-II: Task Listing Calendar/Task App
 
 Note: All output related files are under "src/app" folder.
 
@@ -7,31 +7,36 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Problem Statement
 What needs to be implemented?
 
-Movie Service
-Create a service which will display and add the movie list. The service should return and accept the
-following properties:
-a. Images URL
-b. Name
-c. Description
-d. Rating
-e. Release date
+Task Service
+a. Create a service which will display and add the task list.
+b. The service should return and accept the following properties:
+Title
+Description
+Completion Date
 
-Movies List
-a. Consume the service and display all the movie lists using structural directives
-b. If there is no movie description or other fields available, it should display “N/A”
-c. Show movie list table only if the array length is > 0
+Task List
+a. Consume the service and display all the task lists using structural directives
+b. If there is no description field available, it should display “N/A”
+c. Show task list table only if the array length is > 0 or else show “Hurray! No
+task Available”
 
-Add Movie
-a. Consume the service for adding the movie from the input fields
-Name, Rating, and Release dates are mandatory fields.
-b. Show proper error message and a CSS style for the required fields
-c. The submit button should be disabled until and unless all the validation is proper
+Add Task
+a. Consume the service for adding the task from the input fields
+b. Title and Completion date are mandatory fields
+c. Show proper error messages and CSS styles for the required fields
+d. The date should show the current date if not selected in the date
+input field
+e. The submit button should be disabled until and unless all the
+validation is proper
 
 Custom Directive
 a. Create a custom directive for mouse over.
-b. OnMouseOver, the background for each of the movies listed on the list should change depending on
-their ratings.
-c. Ratings from 1 – 2, 3 – 4, and 5 should show different background colors.
+b. OnMouseOver the list of movies it should change the background
+depending on the date of the task.
+c. If the date is current date then show the background color as green, if
+the date is not current date or previous date should show different
+background red color and if the date is greater than the current date
+it should show yellow color.
 
 ## Development server
 

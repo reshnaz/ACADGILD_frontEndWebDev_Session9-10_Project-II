@@ -10,10 +10,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MovieHomeComponent } from './movie-home/movie-home.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
-import { MovieDetailComponent } from './movie-detail/movie-detail.component'; 
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieService } from './service/movie.service';
 import { MyMouseOverDirective } from './custom-directives/my-mouse-over.directive';
-
+import { MatCardModule, MatButtonModule, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MyDialogComponent } from './my-dialog/my-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { MyMouseOverDirective } from './custom-directives/my-mouse-over.directiv
     MovieListComponent,
     AddMovieComponent,
     MovieDetailComponent,
-    MyMouseOverDirective
+    MyMouseOverDirective,
+    MyDialogComponent
   ],
+  entryComponents: [MyDialogComponent],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, movieRouting
+    BrowserModule, FormsModule, ReactiveFormsModule, movieRouting, MatCardModule, MatButtonModule, MatDialogModule, BrowserAnimationsModule
   ],
-  providers: [MovieService],
+  providers: [MovieService, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

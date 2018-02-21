@@ -1,8 +1,11 @@
 /*Applying suitable background color to page*/
 
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+
 body {
-  background-color: indianred;
+  background: url(https://www.desktopbackground.org/download/1600x1200/2015/12/26/1063376_full-hd-wallpapers-backgrounds-brown-wood_1920x1200_h.jpg) repeat;
   height: 100%;
+  width: 100%;
   margin: 0;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -10,10 +13,10 @@ body {
 
 /* Formats text inside the navigation bar on top */
 
-.navbar-inverse .navbar-nav>li>a {
+/* .navbar-inverse .navbar-nav>li>a {
   font-weight: bold;
   font-size: medium;
-}
+} */
 
 /* Applying suitable color to submit button while adding a movie */
 
