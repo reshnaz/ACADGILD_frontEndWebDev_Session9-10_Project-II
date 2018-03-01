@@ -11,10 +11,12 @@
 
           <div class="container-fluid">
             <div class="row">
-              <div class="col-xs-2">
-                <!-- Dialog box pops open on clicking logo -->
-                <img title="Create New Task" id="main-logo" (click)="openDialog()" src="/assets/logo/PlanIt.png">
-                <hr>
+              <div style="max-width:100%;height:auto;">
+                <div class="col-xs-2">
+                  <!-- Dialog box pops open on clicking logo -->
+                  <img title="Create New Task" id="main-logo" (click)="openDialog()" src="/assets/logo/PlanIt.png">
+                  <hr>
+                </div>
               </div>
               <div class="col-xs-8 col-xs-offset-1" style="text-align:center">
                 <!-- Conditional display of task list based on length of input array -->
